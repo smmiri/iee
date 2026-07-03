@@ -1,68 +1,98 @@
-# iee.smmiri.com
+# بورس انرژی ایران و بازار برق · Iran Energy Exchange (IRENEX) reference
 
-سند مرجع فارسی درباره **بورس انرژی ایران (IRENEX)** و **بازار برق**: ساختار بازارها،
-تابلوها و نمادها، سلف موازی استاندارد، کشف قیمت، تسویه، کارمزد، مراحل ورود، ریسک‌ها،
-مثال عددی و واژه‌نامه.
+یک سند مرجع فارسی و راست‌به‌چپ درباره **بورس انرژی ایران (IRENEX)** با تمرکز ویژه بر **بازار برق**:
+ساختار بازارها، تابلوها و نمادها، سلف موازی استاندارد، کشف قیمت، تسویه، کارمزد، مراحل ورود
+فروشنده و خریدار، ریسک‌ها، یک مثال عددی و واژه‌نامه.
 
-A single-page, self-contained Persian (RTL) reference on Iran Energy Exchange and its
-electricity market. No build step: it is one static `index.html` with inline CSS/JS.
+A single-page, self-contained Persian (RTL) reference on the Iran Energy Exchange and its
+electricity market. It is one static `index.html` with inline CSS/JS: no build step and no
+runtime dependencies.
 
-## Files
+**Live site:** https://iee.smmiri.com
 
-- `index.html` — the whole document (inline styles + a little JS for theme + active TOC).
-- `CNAME` — custom domain `iee.smmiri.com`.
-- `robots.txt`, `sitemap.xml`, `.nojekyll` — static hosting helpers.
-- `.github/workflows/deploy-pages.yml` — GitHub Pages deploy (copies static files, no build).
+## محتوا · What's inside
 
-## Local preview
+The document is organized into ten sections with a sticky table of contents:
 
-This is a single static `index.html` with no build step, so there is nothing to install.
-Run the dev server (uses Python's built-in static server, zero dependencies):
+1. What IRENEX is: definition, purpose, legal status, and how it differs from the wholesale
+   (grid-operated) electricity market and bilateral contracts.
+2. Overall market structure: physical, derivatives, secondary, and other-securities markets.
+3. Deep dive on the electricity market: normal vs green boards, load types (base / peak /
+   mid-peak / off-peak), delivery periods, symbols, contract length, standard parallel salaf,
+   price discovery, symbol open/close rules, trading hours, and roles.
+4. Prerequisites and onboarding for sellers (power plants) and buyers, plus choosing a broker.
+5. A step-by-step walkthrough of one trade, from trading code to physical delivery.
+6. Settlement, guarantees, fees, taxes, and default penalties.
+7. Risks and special electricity-market regulations.
+8. A worked numerical example.
+9. Glossary (Persian and English).
+10. Sources.
+
+## ویژگی‌ها · Tech
+
+- Single static `index.html`, no bundler, works offline (the only external request is the
+  Vazirmatn web font, which degrades gracefully to a system font stack).
+- Light/dark theme with saved preference, print/PDF button, and scroll-synced table of contents.
+- Every important numeric, legal, or procedural claim is footnoted to a numbered source.
+
+## پیش‌نمایش محلی · Local preview
+
+No install needed. The npm scripts just serve the folder over HTTP using Python's built-in
+static server:
 
 ```bash
 npm run dev
-# then visit http://localhost:5173/
+# then open http://localhost:5173/
 ```
 
-Or just open `index.html` directly in a browser, or serve the folder any other way:
+You can also open `index.html` directly, or serve the folder any other way:
 
 ```bash
 python3 -m http.server 8080   # http://localhost:8080/
 ```
 
-> Note: there is deliberately no bundler here. `npm run dev`, `npm start`, and
-> `npm run preview` all just serve the folder over HTTP. If you later want Vite-style
-> hot reload to match the sibling repos, ask and it can be swapped in.
+> There is deliberately no bundler. `npm run dev`, `npm start`, and `npm run preview` all
+> serve the same static files.
 
-## Deploy to iee.smmiri.com
+## استقرار · Deploy (GitHub Pages + custom subdomain)
 
-This follows the same pattern as `rentorbuy.smmiri.com` (a separate GitHub Pages repo per
-subdomain). Steps:
+The site ships with a `CNAME` and a GitHub Actions workflow
+(`.github/workflows/deploy-pages.yml`) that publishes the static files to GitHub Pages.
 
-1. Create a new GitHub repo (for example `smmiri/iee`) and push this folder to `main`.
+1. Push this folder to a GitHub repo (for example `smmiri/iee`):
 
    ```bash
    git init
    git add .
-   git commit -m "Iran Energy Exchange / electricity market reference"
+   git commit -m "Iran Energy Exchange and electricity market reference"
    git branch -M main
    git remote add origin git@github.com:smmiri/iee.git
    git push -u origin main
    ```
 
-2. Repo → **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. The `CNAME` file already sets the custom domain to `iee.smmiri.com`.
-4. **Cloudflare DNS** (zone `smmiri.com`): add `CNAME  iee → smmiri.github.io`
-   (DNS only / grey cloud). Do not touch the existing `rentorbuy` record.
-5. After the DNS check passes and TLS is issued, enable **Enforce HTTPS**.
-6. Optionally add `https://iee.smmiri.com/` to the apex `sitemap.xml` in the
-   `smmiri.github.io` repo.
+2. In the repo, go to **Settings → Pages → Build and deployment** and set **Source: GitHub
+   Actions**. The workflow runs on every push to `main`.
+3. The `CNAME` file already points the site at `iee.smmiri.com`.
+4. In your DNS provider, add a `CNAME` record: `iee` → `smmiri.github.io` (DNS only, no proxy).
+   Leave any existing records intact.
+5. Once the Pages domain check passes and TLS is issued, enable **Enforce HTTPS**.
 
-## Content notes
+## منابع و صحت · Sources and accuracy
 
-- Every important numeric, legal, or procedural claim is footnoted to a source listed at
-  the bottom of the page.
-- Fee tables, VAT rate, trading hours, and penalty coefficients change over time. Verify
-  against the official sources before acting: `irenex.ir`, `seo.ir`, `igmc.ir`,
-  `tavanir.org.ir`. Use `web.archive.org` if a page is unreachable.
-- This site is not affiliated with IRENEX, the SEO, or any government body.
+- Claims are footnoted to reliable sources that themselves cite official directives from the
+  Ministry of Energy, the Securities and Exchange Organization, and the Iran Grid Management
+  Company.
+- Fee tables, the VAT rate, trading hours, and penalty coefficients change over time. Verify
+  against the official sources before acting on anything: `irenex.ir`, `seo.ir`, `igmc.ir`,
+  and `tavanir.org.ir`. Use `web.archive.org` if a page is unreachable.
+- Corrections are welcome. If you find an outdated number or a better primary source, please
+  open an issue or a pull request with a link.
+
+## سلب مسئولیت · Disclaimer
+
+This is an educational reference, not investment, legal, or tax advice. It is not affiliated
+with IRENEX, the Securities and Exchange Organization, or any government body.
+
+## License
+
+MIT. See [`LICENSE`](./LICENSE).
