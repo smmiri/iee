@@ -12,21 +12,26 @@ runtime dependencies.
 
 ## محتوا · What's inside
 
-The document is organized into ten sections with a sticky table of contents:
+The document is organized into eleven sections with a sticky table of contents:
 
 1. What IRENEX is: definition, purpose, legal status, and how it differs from the wholesale
    (grid-operated) electricity market and bilateral contracts.
-2. Overall market structure: physical, derivatives, secondary, and other-securities markets.
-3. Deep dive on the electricity market: normal vs green boards, load types (base / peak /
+2. Other electricity market mechanisms in Iran: the wholesale/balancing market (IGMC), bilateral
+   contracts, renewables guaranteed purchase (SATBA), regulated retail tariffs (Tavanir/MoE),
+   cross-border trade, and the mandatory-purchase / self-supply layer, each with a comparable
+   schema (operator, pricing, settlement, participants, entry, data availability).
+3. Overall market structure: physical, derivatives, secondary, and other-securities markets
+   (non-electricity boards condensed).
+4. Deep dive on the electricity market: normal vs green boards, load types (base / peak /
    mid-peak / off-peak), delivery periods, symbols, contract length, standard parallel salaf,
    price discovery, symbol open/close rules, trading hours, and roles.
-4. Prerequisites and onboarding for sellers (power plants) and buyers, plus choosing a broker.
-5. A step-by-step walkthrough of one trade, from trading code to physical delivery.
-6. Settlement, guarantees, fees, taxes, and default penalties.
-7. Risks and special electricity-market regulations.
-8. A worked numerical example.
-9. Glossary (Persian and English).
-10. Sources.
+5. Prerequisites and onboarding for sellers (power plants) and buyers, plus choosing a broker.
+6. A step-by-step walkthrough of one trade, from trading code to physical delivery.
+7. Settlement, guarantees, fees, taxes, and default penalties.
+8. Risks and special electricity-market regulations.
+9. A worked numerical example.
+10. Glossary (Persian and English).
+11. Sources.
 
 ## ویژگی‌ها · Tech
 
@@ -82,9 +87,10 @@ The site ships with a `CNAME` and a GitHub Actions workflow
 - Claims are footnoted to reliable sources that themselves cite official directives from the
   Ministry of Energy, the Securities and Exchange Organization, and the Iran Grid Management
   Company.
-- Fee tables, the VAT rate, trading hours, and penalty coefficients change over time. Verify
-  against the official sources before acting on anything: `irenex.ir`, `seo.ir`, `igmc.ir`,
-  and `tavanir.org.ir`. Use `web.archive.org` if a page is unreachable.
+- Fee tables, the VAT rate, trading hours, market price caps, feed-in and retail tariffs, and
+  penalty coefficients change over time. Verify against the official sources before acting on
+  anything: `irenex.ir`, `seo.ir`, `igmc.ir`, `tavanir.org.ir`, `satba.gov.ir`, and `moe.gov.ir`.
+  Use `web.archive.org` if a page is unreachable.
 - Corrections are welcome. If you find an outdated number or a better primary source, please
   open an issue or a pull request with a link.
 
