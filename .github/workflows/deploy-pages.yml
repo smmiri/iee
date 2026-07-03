@@ -1,11 +1,12 @@
 # Publish the static site to GitHub Pages.
 # Canonical URL: https://iee.smmiri.com/
 #
-# FIRST-TIME SETUP:
-#   Repo -> Settings -> Pages -> Build and deployment -> Source: "GitHub Actions"
-#   Repo -> Settings -> Pages -> Custom domain: iee.smmiri.com (the CNAME file also sets this)
-#   Cloudflare DNS (zone smmiri.com): CNAME  iee -> smmiri.github.io  (DNS only / grey cloud)
-#   Then enable "Enforce HTTPS" once the certificate is issued.
+# The "Configure GitHub Pages" step below uses `enablement: true`, so it turns Pages on
+# automatically the first time (no need to visit Settings -> Pages first). This fixes the
+# "Get Pages site failed ... Not Found" error on a fresh repo.
+#
+# DNS: add a CNAME record `iee -> smmiri.github.io` (DNS only, no proxy), then enable
+# "Enforce HTTPS" in Settings -> Pages once the certificate is issued.
 
 name: Deploy to GitHub Pages
 
@@ -48,6 +49,8 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
