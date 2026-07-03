@@ -26,7 +26,9 @@ permissions:
 
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  # Keep false: cancel-in-progress can abort an in-flight Pages deployment and
+  # surface as "Deploy to GitHub Pages" failures even when the artifact is fine.
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -67,3 +69,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          timeout: 900000
+          error_count: 15
+          reporting_interval: 10000
