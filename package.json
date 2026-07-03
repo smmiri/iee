@@ -1,0 +1,14 @@
+{
+  "name": "iee-smmiri-com",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static Persian reference on Iran Energy Exchange (IRENEX) and its electricity market (iee.smmiri.com).",
+  "license": "MIT",
+  "author": "Mohammad Miri",
+  "homepage": "https://iee.smmiri.com/",
+  "scripts": {
+    "dev": "python3 -m http.server 5173",
+    "start": "python3 -m http.server 5173",
+    "preview": "python3 -m http.server 5173"
+  }
+}

@@ -1,0 +1,1371 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="color-scheme" content="light dark" />
+    <title>راهنمای جامع بورس انرژی ایران و بازار برق | IRENEX</title>
+    <meta
+      name="description"
+      content="سند مرجع فارسی درباره بورس انرژی ایران (IRENEX): ساختار بازارها، بازار برق، تابلوها و نمادها، سلف موازی استاندارد، کشف قیمت، تسویه، کارمزد، مراحل ورود و مثال عددی."
+    />
+    <meta name="author" content="Mohammad Miri" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://iee.smmiri.com/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="iee.smmiri.com" />
+    <meta property="og:title" content="راهنمای جامع بورس انرژی ایران و بازار برق" />
+    <meta
+      property="og:description"
+      content="سند مرجع فارسی و فنی درباره بورس انرژی ایران و بازار برق: ساختار، نمادها، کشف قیمت، تسویه، کارمزد، مراحل ورود و مثال عددی."
+    />
+    <meta property="og:url" content="https://iee.smmiri.com/" />
+    <meta property="og:locale" content="fa_IR" />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
+    />
+    <style>
+      :root {
+        --bg: #f7f7f5;
+        --surface: #ffffff;
+        --surface-2: #f0f2f5;
+        --text: #1a1f2b;
+        --muted: #566072;
+        --border: #e2e6ec;
+        --accent: #0b6b5f;
+        --accent-soft: #e5f2ef;
+        --accent-2: #b45309;
+        --warn-bg: #fff7ed;
+        --warn-border: #fed7aa;
+        --code-bg: #eef1f5;
+        --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 8px 24px rgba(16, 24, 40, 0.06);
+        --radius: 14px;
+        --maxw: 1180px;
+      }
+      html.dark {
+        --bg: #0d1117;
+        --surface: #151b24;
+        --surface-2: #1b232e;
+        --text: #e6e9ef;
+        --muted: #9aa7b8;
+        --border: #263040;
+        --accent: #3ecfb8;
+        --accent-soft: #123029;
+        --accent-2: #fbbf6b;
+        --warn-bg: #2a2015;
+        --warn-border: #4a3620;
+        --code-bg: #1c242f;
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Vazirmatn", "Segoe UI", Tahoma, "Iranian Sans", system-ui, sans-serif;
+        line-height: 1.9;
+        font-size: 17px;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        backdrop-filter: saturate(160%) blur(10px);
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
+      .topbar-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .brand .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+      }
+      .topbar-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .btn {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 7px 14px;
+        font: inherit;
+        font-size: 13px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .btn:hover {
+        border-color: var(--accent);
+      }
+
+      .hero {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 44px 20px 8px;
+      }
+      .kicker {
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+      }
+      h1 {
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.25;
+        margin: 10px 0 8px;
+        letter-spacing: -0.01em;
+      }
+      .lede {
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 60ch;
+        margin: 0 0 16px;
+      }
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 16px 0 8px;
+      }
+      .chip {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 5px 12px;
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+
+      .layout {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 12px 20px 80px;
+        display: grid;
+        grid-template-columns: 288px 1fr;
+        gap: 32px;
+        align-items: start;
+      }
+      .toc {
+        position: sticky;
+        top: 64px;
+        max-height: calc(100vh - 84px);
+        overflow: auto;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px;
+        box-shadow: var(--shadow);
+      }
+      .toc h2 {
+        font-size: 13px;
+        text-transform: none;
+        color: var(--muted);
+        margin: 4px 6px 12px;
+        font-weight: 700;
+      }
+      .toc ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        counter-reset: toc;
+      }
+      .toc li a {
+        display: block;
+        padding: 7px 10px;
+        border-radius: 9px;
+        color: var(--muted);
+        font-size: 14px;
+        border-right: 2px solid transparent;
+      }
+      .toc li a:hover {
+        background: var(--surface-2);
+        text-decoration: none;
+        color: var(--text);
+      }
+      .toc li a.active {
+        color: var(--accent);
+        background: var(--accent-soft);
+        border-right-color: var(--accent);
+        font-weight: 700;
+      }
+
+      main {
+        min-width: 0;
+      }
+      section {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 26px 30px;
+        margin-bottom: 22px;
+        box-shadow: var(--shadow);
+        scroll-margin-top: 76px;
+      }
+      section > h2:first-child {
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 25px;
+        line-height: 1.35;
+        margin: 6px 0 14px;
+        letter-spacing: -0.01em;
+      }
+      h3 {
+        font-size: 19.5px;
+        margin: 26px 0 10px;
+        color: var(--text);
+      }
+      h4 {
+        font-size: 16.5px;
+        margin: 18px 0 8px;
+        color: var(--accent);
+      }
+      p {
+        margin: 12px 0;
+      }
+      ul,
+      ol {
+        padding-inline-start: 22px;
+      }
+      li {
+        margin: 6px 0;
+      }
+      strong {
+        font-weight: 700;
+      }
+      .num-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-weight: 800;
+        margin-inline-end: 10px;
+        font-size: 15px;
+        padding: 0 6px;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin: 16px 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14.5px;
+      }
+      th,
+      td {
+        text-align: right;
+        padding: 11px 13px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+      thead th {
+        background: var(--surface-2);
+        font-weight: 700;
+        color: var(--text);
+        position: sticky;
+        top: 0;
+      }
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+      tbody tr:hover td {
+        background: color-mix(in srgb, var(--accent-soft) 40%, transparent);
+      }
+      caption {
+        caption-side: top;
+        text-align: right;
+        color: var(--muted);
+        font-size: 13px;
+        padding: 4px 2px 10px;
+      }
+
+      .callout {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin: 16px 0;
+        background: var(--surface-2);
+      }
+      .callout.note {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+      .callout.warn {
+        border-color: var(--warn-border);
+        background: var(--warn-bg);
+      }
+      .callout .tag {
+        font-weight: 800;
+        font-size: 13px;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      code,
+      .mono {
+        font-family: "Vazirmatn", ui-monospace, SFMono-Regular, Menlo, monospace;
+        background: var(--code-bg);
+        padding: 2px 7px;
+        border-radius: 6px;
+        font-size: 0.92em;
+        direction: ltr;
+        unicode-bidi: embed;
+        display: inline-block;
+      }
+      .formula {
+        background: var(--code-bg);
+        border: 1px dashed var(--border);
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin: 14px 0;
+        font-size: 15px;
+      }
+
+      sup.ref {
+        font-size: 11px;
+        font-weight: 700;
+      }
+      sup.ref a {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-radius: 5px;
+        padding: 1px 5px;
+        margin: 0 1px;
+        text-decoration: none;
+      }
+
+      .sources li {
+        margin: 10px 0;
+        font-size: 14px;
+        word-break: break-word;
+      }
+      .sources .stamp {
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+
+      footer {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 24px 20px 60px;
+        color: var(--muted);
+        font-size: 13.5px;
+        border-top: 1px solid var(--border);
+      }
+
+      .steps {
+        list-style: none;
+        padding: 0;
+        counter-reset: step;
+      }
+      .steps > li {
+        position: relative;
+        padding: 4px 46px 14px 0;
+        counter-increment: step;
+      }
+      .steps > li::before {
+        content: counter(step);
+        position: absolute;
+        right: 0;
+        top: 2px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+      }
+      .steps > li::after {
+        content: "";
+        position: absolute;
+        right: 15px;
+        top: 36px;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+      }
+      .steps > li:last-child::after {
+        display: none;
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .toc {
+          position: relative;
+          top: 0;
+          max-height: none;
+        }
+        section {
+          padding: 20px 18px;
+        }
+        body {
+          font-size: 16px;
+        }
+      }
+      @media print {
+        .topbar,
+        .toc,
+        .topbar-actions {
+          display: none;
+        }
+        section {
+          box-shadow: none;
+          border: none;
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="brand"><span class="dot"></span><span>بورس انرژی ایران، بازار برق</span></div>
+        <div class="topbar-actions">
+          <button class="btn" id="print-btn" type="button">چاپ / PDF</button>
+          <button class="btn" id="theme-btn" type="button" aria-label="تغییر تم">حالت شب</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="kicker">سند مرجع فنی · فارسی</div>
+      <h1>بورس انرژی ایران و بازار برق: راهنمای کامل کارکرد و ورود</h1>
+      <p class="lede">
+        این سند توضیح می‌دهد بورس انرژی ایران (IRENEX) چیست، چگونه کار می‌کند و یک شرکت
+        برای خرید یا فروش برق در آن باید چه مسیری را طی کند. تمرکز اصلی روی «بازار برق»
+        است، از ساختار تابلوها و نمادها تا کشف قیمت، تسویه، کارمزد و تحویل فیزیکی.
+      </p>
+      <div class="meta-row">
+        <span class="chip">مخاطب: تازه‌وارد و حرفه‌ای</span>
+        <span class="chip">آخرین ویرایش: تیر ۱۴۰۵</span>
+        <span class="chip">همه ادعاهای کلیدی منبع‌دار هستند</span>
+      </div>
+      <div class="callout warn">
+        <span class="tag">سلب مسئولیت</span>
+        این متن جنبه آموزشی و مرجع دارد و مشاوره سرمایه‌گذاری، حقوقی یا مالیاتی نیست.
+        اعداد کارمزد، نرخ مالیات، ساعات معاملاتی و جزئیات قراردادها در طول زمان تغییر
+        می‌کنند. پیش از هر تصمیم واقعی، آخرین دستورالعمل‌ها را از منابع رسمی
+        (<a href="https://www.irenex.ir" rel="nofollow">irenex.ir</a> و
+        <a href="https://www.seo.ir" rel="nofollow">seo.ir</a>) و کارگزار خود بررسی کنید.
+      </div>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="فهرست مطالب">
+        <h2>فهرست مطالب</h2>
+        <ol>
+          <li><a href="#intro">۱. بورس انرژی ایران چیست؟</a></li>
+          <li><a href="#structure">۲. ساختار کلی بازارها</a></li>
+          <li><a href="#power">۳. تمرکز عمیق روی بازار برق</a></li>
+          <li><a href="#entry">۴. پیش‌نیازها و مراحل ورود</a></li>
+          <li><a href="#flow">۵. فرآیند گام‌به‌گام یک معامله</a></li>
+          <li><a href="#settlement">۶. تسویه، تضامین، کارمزد و مالیات</a></li>
+          <li><a href="#risks">۷. ریسک‌ها و ملاحظات</a></li>
+          <li><a href="#example">۸. مثال عددی فرضی</a></li>
+          <li><a href="#glossary">۹. واژه‌نامه</a></li>
+          <li><a href="#sources">منابع</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <section id="intro">
+          <h2><span class="num-badge">۱</span>بورس انرژی ایران چیست و چرا وجود دارد؟</h2>
+
+          <h3>تعریف</h3>
+          <p>
+            بورس انرژی ایران (به انگلیسی <span class="mono">Iran Energy Exchange</span> و با نماد اختصاری
+            IRENEX) یک بورس کالایی تخصصی است که در آن «حامل‌های انرژی» و «اوراق بهادار مبتنی بر آن‌ها»
+            معامله می‌شوند. حامل‌های انرژی شامل برق، نفت خام و فرآورده‌های نفتی، گاز طبیعی، میعانات
+            گازی، زغال‌سنگ و مواردی از این دست هستند.<sup class="ref"><a href="#s1">۱</a><a href="#s2">۲</a></sup>
+            این بورس چهارمین رکن بازار سرمایه ایران است، در کنار بورس اوراق بهادار تهران، فرابورس ایران
+            و بورس کالای ایران.<sup class="ref"><a href="#s5">۵</a></sup>
+          </p>
+
+          <h3>فلسفه وجودی</h3>
+          <p>
+            پیش از راه‌اندازی بورس، قیمت‌گذاری و تبادل حامل‌های انرژی (به‌ویژه برق) عمدتاً به‌صورت
+            دولتی یا دوجانبه و بدون یک بازار متمرکز و شفاف انجام می‌شد. ماموریت اعلام‌شده بورس انرژی
+            «ایجاد بازاری شفاف، کارآمد، با نقدشوندگی و رقابت‌پذیری بالا، برای رفع انحصار و کشف عادلانه
+            قیمت حامل‌های انرژی» است.<sup class="ref"><a href="#s4">۴</a></sup> به بیان ساده، بورس چند
+            هدف را دنبال می‌کند:
+          </p>
+          <ul>
+            <li><strong>کشف قیمت شفاف:</strong> قیمت در یک سازوکار رقابتی و قابل‌مشاهده تعیین می‌شود، نه با ابلاغ یک‌طرفه.</li>
+            <li><strong>تامین مالی تولیدکنندگان:</strong> نیروگاه‌ها و پالایشگاه‌ها می‌توانند با انتشار اوراق (مثل سلف موازی استاندارد) پیش از تولید، نقدینگی جذب کنند.<sup class="ref"><a href="#s1">۱</a></sup></li>
+            <li><strong>پوشش ریسک:</strong> ابزارهای مشتقه امکان مدیریت نوسان قیمت را می‌دهند.</li>
+            <li><strong>انحصارزدایی و دسترسی غیرتبعیض‌آمیز:</strong> همه اعضای واجد شرایط به یک بستر یکسان دسترسی دارند.<sup class="ref"><a href="#s1">۱</a></sup></li>
+            <li><strong>معافیت‌های قانونی:</strong> برای مثال بخشی از مالیات بر درآمد فروش کالاهای معامله‌شده در بورس مشمول بخشودگی است و معاملات از تشریفات مناقصه و مزایده معاف‌اند.<sup class="ref"><a href="#s4">۴</a><a href="#s3">۳</a></sup></li>
+          </ul>
+
+          <h3>جایگاه قانونی و نهاد ناظر</h3>
+          <p>
+            شرکت بورس انرژی ایران (سهامی عام) در ۱۷ تیرماه ۱۳۹۱ و از دل ادغام «بورس نفت» با «بورس
+            جدیدالتاسیس برق» شکل گرفت و به ثبت رسید.<sup class="ref"><a href="#s1">۱</a><a href="#s17">۱۷</a></sup>
+            مجوز فعالیت آن را «شورای عالی بورس و اوراق بهادار» صادر کرده و بر کل فعالیت آن «سازمان بورس و
+            اوراق بهادار» (SEO) نظارت می‌کند.<sup class="ref"><a href="#s1">۱</a></sup> ارکان و سهامداران
+            اصلی شرکت شامل وزارت صنعت، معدن و تجارت، وزارت نفت، وزارت نیرو و شرکت‌های صنعت انرژی (مانند
+            شرکت پالایش و پخش فرآورده‌های نفتی و شرکت مدیریت منابع آب ایران) هستند.<sup class="ref"><a href="#s1">۱</a></sup>
+          </p>
+          <p>
+            چارچوب حقوقی معاملات عمدتاً بر این قوانین استوار است: قانون بازار اوراق بهادار جمهوری
+            اسلامی ایران (۱۳۸۴)، قانون توسعه ابزارها و نهادهای مالی جدید، قانون اجرای سیاست‌های کلی اصل
+            ۴۴، قانون مبارزه با پول‌شویی و قانون تجارت.<sup class="ref"><a href="#s4">۴</a></sup>
+            وب‌سایت رسمی شرکت <span class="mono">irenex.ir</span> است (نشانی قدیمی‌تر
+            <span class="mono">iee.ir</span> نیز در برخی منابع دیده می‌شود).<sup class="ref"><a href="#s17">۱۷</a><a href="#s1">۱</a></sup>
+          </p>
+
+          <h3>تفاوت «بورس برق» با «بازار برق مدیریت شبکه» و قرارداد دوجانبه</h3>
+          <p>
+            نکته‌ای که تازه‌واردها را گیج می‌کند این است که در ایران چند «بازار برق» وجود دارد. این‌ها
+            را نباید یکی گرفت:
+          </p>
+          <div class="table-wrap">
+            <table>
+              <caption>سه مسیر اصلی خرید و فروش برق در ایران</caption>
+              <thead>
+                <tr>
+                  <th>سازوکار</th>
+                  <th>متولی</th>
+                  <th>ماهیت</th>
+                  <th>ویژگی کلیدی</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>بازار عمده‌فروشی برق (بازار متعادل‌ساز / بازار مدیریت شبکه)</strong></td>
+                  <td>شرکت مدیریت شبکه برق ایران، زیر نظر هیئت تنظیم بازار برق</td>
+                  <td>بازار سنتی و اجباری تسویه تولید و مصرف کل شبکه</td>
+                  <td>قیمت آمادگی و نرخ سقف سالانه توسط هیئت تنظیم بازار برق ابلاغ می‌شود.<sup class="ref"><a href="#s16">۱۶</a></sup></td>
+                </tr>
+                <tr>
+                  <td><strong>بورس انرژی (تابلوی برق)</strong></td>
+                  <td>شرکت بورس انرژی ایران، زیر نظر سازمان بورس</td>
+                  <td>بازار رقابتی، شفاف و داوطلبانه با کارگزار</td>
+                  <td>کشف قیمت رقابتی، نماد استاندارد، تسویه از طریق اتاق پایاپای.<sup class="ref"><a href="#s6">۶</a></sup></td>
+                </tr>
+                <tr>
+                  <td><strong>قرارداد دوجانبه</strong></td>
+                  <td>ثبت و نظارت شرکت مدیریت شبکه برق ایران</td>
+                  <td>توافق مستقیم و مذاکره‌ای فروشنده و مصرف‌کننده</td>
+                  <td>انعطاف بالا، پرداخت پس از مصرف، امکان نرخ ثابت سالانه.<sup class="ref"><a href="#s12">۱۲</a></sup></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            نکته مهم: در هر سه روش «هیچ تغییر فیزیکی در سیم‌کشی و کنتور مصرف‌کننده رخ نمی‌دهد». برق
+            همچنان از همان شبکه سراسری تحویل می‌شود؛ آنچه تغییر می‌کند «حسابداری مالی و بازرگانی» انرژی
+            است. اگر عرضه‌کننده طرف قرارداد نتواند برق را تامین کند، شرکت مدیریت شبکه برق ایران تامین
+            پایدار را تضمین می‌کند و جبران خسارت طبق مصوبات هیئت تنظیم بازار برق انجام می‌شود.<sup class="ref"><a href="#s12">۱۲</a></sup>
+          </p>
+          <div class="callout note">
+            <span class="tag">چرا شرکت‌ها سراغ بورس می‌روند؟</span>
+            از مهرماه ۱۳۹۹ مشترکان صنعتی با قدرت قراردادی بالای ۵ مگاوات و سپس از خرداد ۱۴۰۲ مشترکان
+            بالای ۱ مگاوات، مکلف شدند بخشی از برق مورد نیاز خود را از طریق بورس انرژی (تابلوی اول) یا
+            قرارداد دوجانبه تامین کنند. در غیر این صورت، مصرف مازاد آن‌ها با ضریب ۱٫۲ برابرِ حداکثر
+            قیمت پذیرفته‌شده در بازار برق محاسبه می‌شود و در اولویت خاموشی قرار می‌گیرند.<sup class="ref"><a href="#s6">۶</a><a href="#s11">۱۱</a><a href="#s12">۱۲</a></sup>
+          </div>
+        </section>
+
+        <section id="structure">
+          <h2><span class="num-badge">۲</span>ساختار کلی بازارهای بورس انرژی</h2>
+          <p>
+            بورس انرژی به‌طور رایج به دو بازار فعال اصلی «فیزیکی» و «مشتقه» تقسیم می‌شود، اما در عمل
+            چهار بخش قابل تفکیک است: بازار فیزیکی، بازار مشتقه، بازار فرعی و بازار سایر اوراق بهادار
+            قابل معامله.<sup class="ref"><a href="#s3">۳</a><a href="#s5">۵</a></sup> هر تابلو نیز دو
+            «رینگ» دارد: رینگ داخلی (تسویه ریالی، مخصوص داخل کشور) و رینگ بین‌الملل (معاملات صادراتی و
+            ارزی).<sup class="ref"><a href="#s3">۳</a></sup>
+          </p>
+
+          <h3>الف) بازار فیزیکی</h3>
+          <p>
+            در بازار فیزیکی، «خودِ کالا» معامله و در نهایت تحویل می‌شود. این بازار سه تابلو دارد:
+          </p>
+          <ul>
+            <li><strong>تابلوی برق</strong> (موضوع اصلی این سند).</li>
+            <li><strong>تابلوی نفت و گاز</strong>: نفت خام، میعانات گازی، فرآورده‌های هیدروکربوری و مشتقات.</li>
+            <li><strong>تابلوی سایر حامل‌های انرژی</strong>: مانند زغال‌سنگ و حامل‌های کمترمتداول.</li>
+          </ul>
+          <p>
+            قالب‌های قراردادی این بازار عبارت‌اند از: نقدی، نسیه، سلف و کشف پریمیوم.<sup class="ref"><a href="#s2">۲</a><a href="#s3">۳</a></sup>
+            روش انجام معامله بسته به تعداد عرضه‌کننده و شرایط عرضه می‌تواند «حراج حضوری»، «معاملات تمام
+            الکترونیکی» یا «عرضه یکجا (بلوکی)» باشد.<sup class="ref"><a href="#s4">۴</a></sup> در رینگ
+            داخلی معمولاً فقط اشخاص حقوقی دارای پروانه بهره‌برداری مرتبط حق خرید دارند؛ اشخاص حقیقی در
+            بازار فیزیکی داخلی حق خرید ندارند.<sup class="ref"><a href="#s2">۲</a></sup>
+          </p>
+
+          <h4>انواع قرارداد در بازار فیزیکی</h4>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>قرارداد</th><th>پرداخت وجه</th><th>تحویل کالا</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>نقدی (Spot)</td><td>هنگام معامله</td><td>کوتاه‌مدت پس از معامله</td></tr>
+                <tr><td>نسیه</td><td>در سررسید آینده</td><td>کوتاه‌مدت پس از معامله</td></tr>
+                <tr><td>سلف (Prepaid Forward)</td><td>هنگام معامله</td><td>در سررسید آینده</td></tr>
+                <tr><td>کشف پریمیوم</td><td>بخشی هنگام معامله، مابقی بر مبنای فرمول</td><td>در آینده؛ قیمت شناور بر پایه مرجع جهانی + پریمیوم</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>ب) بازار مشتقه</h3>
+          <p>
+            در بازار مشتقه، به‌جای خود کالا، «اوراق بهادار مبتنی بر کالا» معامله می‌شود و همه چیز کاملاً
+            الکترونیکی است. سه تابلو دارد:<sup class="ref"><a href="#s2">۲</a><a href="#s4">۴</a></sup>
+          </p>
+          <ul>
+            <li>
+              <strong>قرارداد سلف موازی استاندارد:</strong> پیش‌فروش مقدار مشخصی از دارایی پایه با
+              سررسید معین. برخلاف سلف عادی، خریدار می‌تواند اوراق را «پیش از سررسید» در بازار ثانویه به
+              شخص دیگری بفروشد؛ به همین دلیل ابزاری مالی/سرمایه‌گذاری محسوب می‌شود. تحویل فقط از سوی
+              فروشنده اولیه انجام می‌شود.<sup class="ref"><a href="#s15">۱۵</a><a href="#s3">۳</a></sup>
+            </li>
+            <li>
+              <strong>قرارداد آتی (Futures):</strong> تعهد خرید یا فروش کالا در آینده با قیمت ثابت
+              کنونی؛ هر طرف نزد اتاق پایاپای «وجه تضمین» می‌سپارد که با تغییر قیمت روزانه تعدیل می‌شود.<sup class="ref"><a href="#s3">۳</a></sup>
+            </li>
+            <li>
+              <strong>قرارداد اختیار معامله (Option):</strong> ورقه‌ای که حق (نه تعهد) خرید یا فروش
+              دارایی با قیمت معین در زمان مشخص را به دارنده می‌دهد؛ فروشنده اختیار در ازای دریافت وجه،
+              متعهد و ملزم به ارائه تضمین است.<sup class="ref"><a href="#s3">۳</a></sup>
+            </li>
+          </ul>
+          <div class="callout note">
+            <span class="tag">تفاوت کلیدی برای برق</span>
+            در بازار برق، «سلف موازی استاندارد» ابزار مشتقه فعال و پرکاربرد است. قرارداد آتی و اختیار
+            معامله در تئوری بخشی از ساختار بورس‌اند، اما تمرکز عملی معاملات برق روی تابلوی فیزیکی و
+            تابلوی سلف موازی استاندارد است.<sup class="ref"><a href="#s6">۶</a></sup>
+          </div>
+
+          <h3>پ) بازار فرعی</h3>
+          <p>
+            بازار فرعی مخصوص «کالاهای تک‌محموله‌ای» یا محموله‌هایی است که شرایط پذیرش در بازار فیزیکی
+            را ندارند (کیفیت یا استاندارد متفاوت)، یا کالایی که قبلاً پذیرفته شده اما شرایط پذیرش را از
+            دست داده است. هر عرضه در این بازار مستلزم درخواست جداگانه و اخذ موافقت «کمیته عرضه» برای
+            همان نوبت است.<sup class="ref"><a href="#s3">۳</a><a href="#s4">۴</a></sup>
+          </p>
+
+          <h3>ت) بازار سایر اوراق بهادار قابل معامله</h3>
+          <p>
+            در این بخش، اوراق و گواهی‌های مالی مرتبط با انرژی معامله می‌شوند؛ از جمله «گواهی سپرده
+            کالا»، «اوراق گواهی ظرفیت» (مثلاً گواهی ظرفیت نیروگاه) و «واحدهای صندوق‌های سرمایه‌گذاری
+            کالایی یا پروژه‌ای». این ابزارها امکان تامین مالی طرح‌ها و سرمایه‌گذاری در حوزه انرژی را
+            بدون خرید مستقیم کالا فراهم می‌کنند.<sup class="ref"><a href="#s3">۳</a></sup>
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <caption>جمع‌بندی ساختار بورس انرژی</caption>
+              <thead>
+                <tr><th>بازار</th><th>تابلو / ابزار</th><th>موضوع معامله</th><th>خریدار حقیقی؟</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>فیزیکی</td><td>برق، نفت و گاز، سایر حامل‌ها</td><td>خود کالا (منجر به تحویل)</td><td>خیر (رینگ داخلی)</td></tr>
+                <tr><td>مشتقه</td><td>سلف موازی استاندارد، آتی، اختیار معامله</td><td>اوراق مبتنی بر کالا</td><td>در اوراق سلف: بله</td></tr>
+                <tr><td>فرعی</td><td>عرضه موردی با مجوز کمیته عرضه</td><td>کالای تک‌محموله‌ای/غیراستاندارد</td><td>حسب مورد</td></tr>
+                <tr><td>سایر اوراق</td><td>گواهی سپرده کالا، گواهی ظرفیت، صندوق‌ها</td><td>اوراق بهادار</td><td>حسب مورد</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="color: var(--muted); font-size: 13.5px">
+            توجه: اشخاص حقیقی در بازار فیزیکی داخلی حق خرید ندارند و صرفاً در بازار مشتقه (اوراق سلف
+            موازی استاندارد) می‌توانند فعالیت کنند.<sup class="ref"><a href="#s2">۲</a></sup>
+          </p>
+        </section>
+
+        <section id="power">
+          <h2><span class="num-badge">۳</span>تمرکز عمیق روی «بازار برق»</h2>
+          <p>
+            بازار برق بورس انرژی خودش چند لایه دارد. بهترین راه فهم آن، تفکیک بر اساس سه محور است:
+            «تابلو» (عادی/سبز)، «بازار» (فیزیکی/مشتقه) و «زیربازار» (عمده‌فروشی/مصرف‌کنندگان بزرگ).<sup class="ref"><a href="#s6">۶</a></sup>
+          </p>
+
+          <h3>۳٫۱ تابلوها و زیربازارهای برق</h3>
+          <div class="table-wrap">
+            <table>
+              <caption>نقشه بازار برق بورس انرژی ایران</caption>
+              <thead>
+                <tr><th>تابلو</th><th>بازار</th><th>زیربازار</th><th>فروشنده</th><th>خریدار</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2"><strong>برق عادی</strong></td>
+                  <td>فیزیکی و مشتقه</td>
+                  <td>بازار عمده‌فروشی</td>
+                  <td>نیروگاه‌های دارای قابلیت عرضه</td>
+                  <td>شرکت‌های توزیع و خرده‌فروشی برق</td>
+                </tr>
+                <tr>
+                  <td>فیزیکی و مشتقه</td>
+                  <td>مصرف‌کنندگان بزرگ</td>
+                  <td>نیروگاه‌های دارای قابلیت عرضه</td>
+                  <td>مصرف‌کنندگان با قدرت قراردادی بالای ۱ مگاوات</td>
+                </tr>
+                <tr>
+                  <td><strong>برق سبز</strong></td>
+                  <td>فیزیکی و مشتقه</td>
+                  <td>بازار برق سبز</td>
+                  <td>نیروگاه‌های تجدیدپذیر</td>
+                  <td>مصرف‌کنندگان بالای ۱ مگاوات، خرده‌فروش‌ها و مزارع رمزارز</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            «تابلوی برق سبز» بر اساس ماده ۱۶ قانون جهش تولید دانش‌بنیان راه‌اندازی شده است تا برق
+            تجدیدپذیر به‌صورت تبادل فیزیکی یا خرید گواهی تولید سبز معامله شود؛ صنایع بالای ۱ مگاوات
+            موظف‌اند بخشی از نیاز خود را و مزارع رمزارز کل نیاز خود را از این تابلو تامین کنند.<sup class="ref"><a href="#s6">۶</a></sup>
+          </p>
+
+          <h3>۳٫۲ نوع بار (بسته‌بندی) و بازه ساعتی تحویل</h3>
+          <p>
+            برق کالایی است که «زمان مصرف» آن ارزش را تعیین می‌کند؛ برق ساعت اوج گران‌تر از برق نیمه‌شب
+            است. به همین دلیل هر قرارداد بر اساس «نوع بار» بسته‌بندی می‌شود. بازه دقیق ساعات اوج،
+            میان‌باری و کم‌باری هر سال توسط «شرکت مدیریت شبکه برق ایران» اعلام و روی سایت بورس منتشر
+            می‌شود (چون با فصل و ساعات رسمی کشور تغییر می‌کند).<sup class="ref"><a href="#s6">۶</a></sup>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <caption>انواع نوع بار (دوره مصرف)</caption>
+              <thead>
+                <tr><th>نوع بار</th><th>تعریف بازه ساعتی</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>بار پایه</strong> (Base)</td><td>۲۴ ساعت متوالی شبانه‌روز، از ۰۰:۰۰ تا ۲۴:۰۰</td></tr>
+                <tr><td><strong>اوج بار / پرباری / پیک</strong> (Peak)</td><td>ساعات پرمصرف؛ آغاز و پایان طبق اعلام سالانه شرکت مدیریت شبکه برق ایران</td></tr>
+                <tr><td><strong>میان‌باری</strong> (Mid‑peak)</td><td>ساعات میانی؛ طبق اعلام سالانه شرکت مدیریت شبکه</td></tr>
+                <tr><td><strong>کم‌باری</strong> (Off‑peak)</td><td>ساعات کم‌مصرف (عمدتاً شبانه)؛ طبق اعلام سالانه شرکت مدیریت شبکه</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>۳٫۳ دوره تحویل</h3>
+          <p>
+            «دوره تحویل» بازه‌ای است که برق در آن تحویل داده می‌شود و تعیین می‌کند نماد چقدر طول
+            می‌کشد:<sup class="ref"><a href="#s6">۶</a></sup>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>دوره تحویل</th><th>طول دوره</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>روزانه</td><td>یک شبانه‌روز، ۰۰:۰۰ تا ۲۴:۰۰</td></tr>
+                <tr><td>هفتگی</td><td>هفت روز، از ۰۰:۰۰ شنبه تا ۲۴:۰۰ جمعه</td></tr>
+                <tr><td>ماهانه</td><td>یک ماه تقویم شمسی، از اول تا پایان ماه</td></tr>
+                <tr><td>فصلی</td><td>یک فصل، از اول ماه اول فصل تا پایان ماه آخر فصل</td></tr>
+                <tr><td>سالانه</td><td>دوازده ماه، از اول ماه شروع تا پایان همان ماه در سال بعد</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>۳٫۴ نماد، واحد معامله و فرمول طول دوره</h3>
+          <p>
+            هر نماد معاملاتی برق ترکیبی از «نوع بار + دوره تحویل + تاریخ شروع تحویل» است. برای مثال
+            نمادهایی مانند <span class="mono">بارپایه ماهانه ۱۴۰۵۰۴۰۱</span>،
+            <span class="mono">بارپیک ماهانه ۱۴۰۵۰۴۰۱</span> یا
+            <span class="mono">میان‌باری هفتگی</span> و <span class="mono">کم‌باری روزانه</span> در
+            اطلاعیه‌ها دیده می‌شوند.<sup class="ref"><a href="#s8">۸</a><a href="#s9">۹</a></sup>
+          </p>
+          <ul>
+            <li><strong>واحد حجم انرژی:</strong> مگاوات‌ساعت (MWh). حجم کل = توان (مگاوات) × تعداد ساعات دوره.</li>
+            <li><strong>واحد قیمت:</strong> قیمت پایه و قیمت‌های معامله بر مبنای «ریال به ازای هر کیلووات‌ساعت (kWh)» اعلام می‌شود.<sup class="ref"><a href="#s6">۶</a></sup></li>
+          </ul>
+          <div class="formula">
+            <strong>طول دوره قرارداد (ساعت)</strong> = «تعداد روزهای دوره تحویل» × «تعداد ساعات آن نوع بار در شبانه‌روز»
+          </div>
+          <p>مثال‌های رسمی:<sup class="ref"><a href="#s6">۶</a></sup></p>
+          <ul>
+            <li>بار پایه هفتگی: ۷ روز × ۲۴ ساعت = <strong>۱۶۸ ساعت</strong>.</li>
+            <li>میان‌باری ماهانه اسفند ۱۴۰۰ (۲۹ روزه، با ۱۱ ساعت میان‌باری در شبانه‌روز): ۲۹ × ۱۱ = <strong>۳۱۹ ساعت</strong>.</li>
+          </ul>
+
+          <h3>۳٫۵ سلف موازی استاندارد برق (بازار مشتقه)</h3>
+          <p>
+            مطابق دستورالعمل معاملات کالا و اوراق بهادار مبتنی بر کالا در بورس انرژی، دارایی پایه این
+            قرارداد «بسته برق (انرژی الکتریکی) معادل یک مگاوات در هر ساعت از دوره مصرف، در دوره تحویل»
+            است. وجه قرارداد هنگام معامله و طبق زمان‌بندی پرداخت می‌شود و دارایی پایه در سررسید به
+            خریدار تحویل می‌گردد.<sup class="ref"><a href="#s7">۷</a></sup>
+          </p>
+          <p>
+            محل تحویل و نقطه مرجع معامله، «نقطه مرجع (هاب) شبکه سراسری برق کشور» تعیین شده است. بنابراین
+            خریدار و فروشنده، «هزینه ترانزیت و تلفات» از هاب تا محل تولید یا مصرف خود را جداگانه و در
+            فواصل زمانی معین به بهره‌بردار شبکه سراسری (شرکت مدیریت شبکه برق ایران) می‌پردازند.<sup class="ref"><a href="#s7">۷</a></sup>
+            مهم‌ترین تفاوت با بازار فیزیکی این است که در بازار مشتقه امکان «معامله مجدد» اوراق پیش از
+            سررسید در بازار ثانویه وجود دارد، اما در بازار فیزیکی برق خریداری‌شده قابل معامله مجدد
+            نیست.<sup class="ref"><a href="#s6">۶</a></sup>
+          </p>
+
+          <h3>۳٫۶ مکانیزم کشف قیمت، حراج و رقابت</h3>
+          <p>
+            معاملات برق تنها زمانی انجام می‌شود که نیروگاه‌ها عرضه کنند و سقف خرید شرکت‌های توزیع شارژ
+            شده باشد، و به شکل «حراج چند قیمتی» صورت می‌گیرد.<sup class="ref"><a href="#s2">۲</a><a href="#s4">۴</a></sup>
+            سازوکار به این ترتیب است:
+          </p>
+          <ul>
+            <li>کارگزار فروشنده «قیمت پایه» را (بر مبنای ریال بر کیلووات‌ساعت) در درخواست عرضه اعلام می‌کند و پس از تایید بورس در اطلاعیه عرضه قید می‌شود.<sup class="ref"><a href="#s6">۶</a></sup></li>
+            <li>سفارش‌های خرید از بیشترین به کمترین و سفارش‌های عرضه از کمترین به بیشترین مرتب می‌شوند و موتور معاملات آن‌ها را تطبیق (مچینگ) می‌دهد.<sup class="ref"><a href="#s6">۶</a></sup></li>
+            <li>اگر حجم عرضه بیشتر یا برابر تقاضا باشد، کالا به همه خریداران تخصیص می‌یابد. اگر تقاضا بیشتر از عرضه باشد، خریداران وارد «رقابت قیمتی» می‌شوند و عرضه به خریداران با قیمت برتر تخصیص داده می‌شود.<sup class="ref"><a href="#s6">۶</a></sup></li>
+          </ul>
+          <div class="callout note">
+            <span class="tag">درباره «دامنه نوسان» و سقف قیمت</span>
+            برخلاف بازار سهام که دامنه نوسان درصدی روزانه دارد، در بازار برق کشف قیمت از «قیمت پایه» به
+            سمت بالا و از طریق رقابت انجام می‌شود. سقف موثر قیمت عملاً به «نرخ سقف بازار متعادل‌ساز
+            (عمده‌فروشی)» و «پایه بهای آمادگی» گره خورده است که سالانه توسط هیئت تنظیم بازار برق ابلاغ
+            می‌شود.<sup class="ref"><a href="#s16">۱۶</a></sup> جزئیات عددی سقف و کف در هر دوره را باید از
+            اطلاعیه‌های رسمی بورس و شرکت مدیریت شبکه استخراج کرد؛ در این سند عدد ثابتی برای دامنه نوسان
+            ادعا نمی‌شود.
+          </div>
+
+          <h3>۳٫۷ نوع معامله بر اساس فاصله تا سررسید</h3>
+          <p>
+            در بازار فیزیکی برق، نوع معامله بر اساس تعداد روز باقی‌مانده تا سررسید تعیین می‌شود: اگر از
+            روز بعد از معامله تا سررسید «۶ روز کاری یا کمتر» باشد، معامله «نقدی» و اگر «۷ روز کاری یا
+            بیشتر» باشد، معامله «سلف» است.<sup class="ref"><a href="#s6">۶</a></sup>
+          </p>
+
+          <h3>۳٫۸ ضابطه بازگشایی و توقف نمادها</h3>
+          <p>
+            هر نماد در زمان مشخصی پیش از دوره تحویل باز می‌شود و «۳ روز کاری پیش از آغاز دوره تحویل»
+            متوقف می‌شود؛ سپس فرآیند تحویل آغاز می‌گردد.<sup class="ref"><a href="#s6">۶</a><a href="#s9">۹</a></sup>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <caption>زمان بازگشایی و توقف نمادهای سلف برق</caption>
+              <thead>
+                <tr><th>دوره تحویل</th><th>زمان بازگشایی نماد</th><th>آخرین روز معاملاتی (توقف)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>روزانه</td><td>حدود ۳۰ روز قبل از دوره تحویل</td><td>۳ روز کاری قبل از آغاز دوره تحویل</td></tr>
+                <tr><td>هفتگی</td><td>حدود ۸ هفته قبل</td><td>۳ روز کاری قبل از آغاز دوره تحویل</td></tr>
+                <tr><td>ماهانه</td><td>حدود ۳ ماه قبل</td><td>۳ روز کاری قبل از آغاز دوره تحویل</td></tr>
+                <tr><td>فصلی</td><td>حدود ۲ فصل قبل</td><td>۳ روز کاری قبل از آغاز دوره تحویل</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="color: var(--muted); font-size: 13.5px">
+            پیامد عملی: چون نماد ۳ روز کاری پیش از تحویل بسته می‌شود، خریدار باید «پیش‌بینی دقیقی» از
+            مصرف آینده خود داشته باشد؛ برق مازادِ خریداری‌شده و مصرف‌نشده «سوخت» می‌شود.<sup class="ref"><a href="#s12">۱۲</a></sup>
+          </p>
+
+          <h3>۳٫۹ ساعات معاملاتی</h3>
+          <p>
+            ساعات معاملاتی ثابت نیست و با اطلاعیه تغییر می‌کند؛ ارقام زیر نمونه‌های اعلام‌شده‌اند و
+            باید با آخرین اطلاعیه بورس تطبیق داده شوند:<sup class="ref"><a href="#s3">۳</a><a href="#s2">۲</a></sup>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>بخش</th><th>ساعت (نمونه)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>بازار برق (فیزیکی)</td><td>۹:۳۰ تا ۱۲:۰۰ (ارسال سفارش ۹:۳۰ تا ۱۰:۰۰، اصلاح قیمت/حجم ۱۰:۰۰ تا ۱۲:۰۰)</td></tr>
+                <tr><td>سلف موازی استاندارد برق (مشتقه)</td><td>۸:۳۰ تا ۱۲:۳۰</td></tr>
+                <tr><td>رینگ داخلی بازار فیزیکی</td><td>۹:۳۰ تا ۱۶:۳۰</td></tr>
+                <tr><td>رینگ بین‌الملل</td><td>۹:۳۰ تا ۱۷:۰۰ (قابل تمدید)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>۳٫۱۰ نقش‌ها در بازار برق</h3>
+          <div class="table-wrap">
+            <table>
+              <caption>بازیگران و وظایف</caption>
+              <thead>
+                <tr><th>نقش</th><th>کیست</th><th>وظیفه</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>فروشنده</td><td>نیروگاه‌ها و تولیدکنندگان (حرارتی، تجدیدپذیر، برق‌آبی و ...)</td><td>عرضه انرژی در سقف تخصیص‌یافته مدیریت شبکه</td></tr>
+                <tr><td>خریدار</td><td>شرکت‌های توزیع، خرده‌فروش‌ها، مصرف‌کنندگان بزرگ (بالای ۱ مگاوات)، مزارع رمزارز (سبز)</td><td>ثبت سفارش خرید از طریق کارگزار</td></tr>
+                <tr><td>کارگزار</td><td>کارگزاری‌های دارای مجوز بورس انرژی</td><td>واسطه ثبت سفارش، اخذ کد، عرضه/خرید</td></tr>
+                <tr><td>اتاق پایاپای</td><td>شرکت سپرده‌گذاری مرکزی اوراق بهادار و تسویه وجوه (سمات)</td><td>تسویه مالی، دریافت وجه خریدار و پرداخت به فروشنده، تضمین تعهدات</td></tr>
+                <tr><td>شرکت مدیریت شبکه برق ایران</td><td>بهره‌بردار شبکه سراسری</td><td>تعیین سقف مجاز، اعلام ساعات بار، تحویل فیزیکی، دریافت هزینه ترانزیت و تلفات، تضمین تامین</td></tr>
+                <tr><td>توانیر</td><td>شرکت مادرتخصصی مدیریت تولید، انتقال و توزیع نیروی برق</td><td>نظارت، اعمال جبران خسارت و درج در صورت‌حساب مشترک</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            نکته درباره تحویل: در دو ماه نمونه‌ای که خبرگزاری مهر گزارش کرده، ۳۹ شرکت توزیع حدود ۳۱٫۷
+            میلیون مگاوات‌ساعت برق معامله کردند و شرکت مدیریت شبکه سقف مجاز خرید را برای توزیع‌ها و
+            دارایی قابل‌فروش را برای نیروگاه‌ها تعیین کرد؛ این نشان می‌دهد حجم و سقف‌ها مستقیماً توسط
+            مدیریت شبکه کنترل می‌شود.<sup class="ref"><a href="#s10">۱۰</a></sup>
+          </p>
+        </section>
+
+        <section id="entry">
+          <h2><span class="num-badge">۴</span>پیش‌نیازها و مراحل ورود</h2>
+          <p>
+            نقطه شروع هر فعالیت، «دریافت کد معاملاتی بورس انرژی» است که با کد بورسی سهام فرق دارد و از
+            طریق یک کارگزار دارای مجوز صادر می‌شود. در رینگ داخلی بازار فیزیکی برق عملاً «فقط اشخاص
+            حقوقی» مجاز به فعالیت‌اند.<sup class="ref"><a href="#s2">۲</a><a href="#s3">۳</a></sup>
+          </p>
+
+          <h3>۴٫۱ برای فروشنده (نیروگاه / تولیدکننده)</h3>
+          <p>مسیر پذیرش و ورود نیروگاه به بازار فیزیکی برق:<sup class="ref"><a href="#s6">۶</a></sup></p>
+          <ol>
+            <li>انتخاب یک کارگزار بورس انرژی به‌عنوان «مشاور پذیرش» و تکمیل چک‌لیست پذیرش.</li>
+            <li>طرح درخواست در «کمیته پذیرش»، رفع نواقص و قرارگرفتن «امیدنامه» روی سایت بورس انرژی.</li>
+            <li>برای نیروگاه‌های تجدیدپذیر: مسیر ساتبا؛ برای حرارتی: نامه شرکت مدیریت شبکه؛ صدور پروانه بهره‌برداری و امضای قرارداد الحاقی.</li>
+            <li>ارسال «نامه درخواست در نماد» با فرمت مورد تایید در بازار فیزیکی.</li>
+            <li>اخذ کد معاملاتی از سامانه «سمات» (شرکت سپرده‌گذاری مرکزی).</li>
+            <li>«تخصیص دارایی» توسط شرکت مدیریت شبکه برق ایران؛ نیروگاه فقط تا سقف دارایی و اجازه مدیریت شبکه می‌تواند عرضه کند.<sup class="ref"><a href="#s10">۱۰</a></sup></li>
+          </ol>
+          <p>
+            الزامات فنی/شبکه‌ای: نیروگاه باید به شبکه سراسری متصل و «دارای قابلیت عرضه در بازار برق» و
+            پروانه بهره‌برداری معتبر باشد؛ سقف قابل‌عرضه و دارایی هر دوره را مدیریت شبکه تعیین می‌کند.<sup class="ref"><a href="#s2">۲</a><a href="#s6">۶</a></sup>
+          </p>
+
+          <h3>۴٫۲ برای خریدار (صنعت / مصرف‌کننده بزرگ / توزیع / خرده‌فروش)</h3>
+          <ol>
+            <li>مراجعه به شرکت مدیریت شبکه برق ایران و دریافت «معرفی‌نامه جهت درخواست کد خاص برای معاملات برق» (فرم ممهور).<sup class="ref"><a href="#s4">۴</a></sup></li>
+            <li>مراجعه به کارگزار دارای مجوز و تکمیل «فرم احراز هویت»، «فرم درخواست کد معاملاتی اشخاص حقوقی» و «بیانیه ریسک».<sup class="ref"><a href="#s2">۲</a></sup></li>
+            <li>ارائه مدارک ثبتی و هویتی شرکت (جدول زیر) و استعلام «شناسه قب» از بورس و بررسی در سامانه‌های سمات و IGMC.<sup class="ref"><a href="#s6">۶</a></sup></li>
+            <li>افتتاح «حساب وکالتی» نزد بانک عامل و ارسال رسید حساب وکالتی به کارگزار (این حساب مبنای تسویه است).<sup class="ref"><a href="#s6">۶</a><a href="#s11">۱۱</a></sup></li>
+            <li>صدور کد معاملاتی و ایجاد دسترسی به بازار؛ سپس شارژ حساب و ثبت سفارش.<sup class="ref"><a href="#s6">۶</a></sup></li>
+          </ol>
+          <p>
+            ودیعه/پیش‌پرداخت: در بازار فیزیکی، خریدار باید پیش از انجام معامله «۱۰ درصد ارزش معامله» را
+            به حساب سپرده‌گذاری واریز کند؛ مابقی وجه به‌علاوه مالیات بر ارزش افزوده در مهلت تسویه پرداخت
+            می‌شود.<sup class="ref"><a href="#s2">۲</a><a href="#s11">۱۱</a></sup>
+          </p>
+          <p>
+            سقف‌ها: مصرف‌کننده بالای ۱ مگاوات باید در «سقف مجاز» اعلامی مدیریت شبکه خرید کند؛ مصرف مازاد
+            بر آن با ضریب ۱٫۲ حداکثر قیمت پذیرفته‌شده محاسبه می‌شود.<sup class="ref"><a href="#s6">۶</a><a href="#s11">۱۱</a></sup>
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <caption>مدارک لازم برای کد معاملاتی برق (اشخاص حقوقی ایرانی)</caption>
+              <thead>
+                <tr><th>ردیف</th><th>مدرک</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>۱</td><td>فرم احراز هویت مشتری</td></tr>
+                <tr><td>۲</td><td>فرم درخواست کد معاملاتی اشخاص حقوقی</td></tr>
+                <tr><td>۳</td><td>بیانیه ریسک</td></tr>
+                <tr><td>۴</td><td>شرکت‌نامه، اساسنامه و شناسه ملی</td></tr>
+                <tr><td>۵</td><td>آگهی روزنامه رسمی تاسیس و آخرین تغییرات</td></tr>
+                <tr><td>۶</td><td>آگهی آخرین تغییرات مدیران و صاحبان امضای مجاز</td></tr>
+                <tr><td>۷</td><td>کپی برابر اصل مدارک هویتی صاحبان امضای مجاز (شناسنامه و کارت ملی)</td></tr>
+                <tr><td>۸</td><td>مجوزها و مستندات مثبته فعالیت مشتری</td></tr>
+                <tr><td>۹</td><td>فرم معرفی اطلاعات حساب بانکی مشتری</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="color: var(--muted); font-size: 13.5px">
+            مبنای این فهرست، بند «ب» ماده ۲۱ دستورالعمل معاملات کالا و اوراق بهادار مبتنی بر کالا در
+            بورس انرژی و فرم‌های موجود در سایت بورس/کارگزاری است.<sup class="ref"><a href="#s4">۴</a><a href="#s2">۲</a></sup>
+            اشخاص و شرکت‌های خارجی یا با منشا سرمایه خارجی، مدارک متفاوتی (گذرنامه، مدارک تاسیس و
+            اختیارات امضا) ارائه می‌کنند.<sup class="ref"><a href="#s2">۲</a></sup>
+          </p>
+
+          <h3>۴٫۳ نقش کارگزاری و انتخاب کارگزار</h3>
+          <p>
+            همه معاملات فقط از طریق کارگزاران دارای مجوز انجام می‌شود؛ بیش از ۴۰ کارگزاری با رتبه‌های
+            «الف» و «ب» مجاز به فعالیت در بورس انرژی هستند.<sup class="ref"><a href="#s4">۴</a></sup>
+            در انتخاب کارگزار به این موارد توجه کنید:
+          </p>
+          <ul>
+            <li>تجربه و رتبه کارگزار به‌طور خاص در «تابلوی برق» (نه صرفاً سهام).</li>
+            <li>کیفیت پشتیبانی برای پیش‌بینی مصرف و زمان‌بندی سفارش (چون نماد ۳ روز کاری پیش از تحویل بسته می‌شود).</li>
+            <li>شفافیت کارمزد و سرعت فرآیند اخذ کد و تسویه.</li>
+            <li>تجربه در ثبت و پیگیری «تخصیص برق» با شرکت مدیریت شبکه (تا خرید در صورت‌حساب مشترک اعمال شود).<sup class="ref"><a href="#s12">۱۲</a></sup></li>
+          </ul>
+        </section>
+
+        <section id="flow">
+          <h2><span class="num-badge">۵</span>فرآیند گام‌به‌گام یک معامله برق</h2>
+          <p>
+            در ادامه، مسیر یک معامله خرید برق از صفر تا تحویل آورده شده است (سمت فروشنده هم مشابه است
+            با تمرکز بر عرضه به‌جای سفارش خرید):
+          </p>
+          <ol class="steps">
+            <li>
+              <strong>ثبت‌نام و اخذ کد معاملاتی.</strong> دریافت معرفی‌نامه از شرکت مدیریت شبکه،
+              احراز هویت و ارائه مدارک به کارگزار، افتتاح حساب وکالتی و صدور کد.<sup class="ref"><a href="#s6">۶</a><a href="#s2">۲</a></sup>
+            </li>
+            <li>
+              <strong>انتشار اطلاعیه عرضه.</strong> نیروگاه از طریق کارگزارِ عرضه‌کننده، حجم عرضه،
+              حداکثر افزایش عرضه، نوع معامله، قیمت پایه، شیوه تسویه، دوره تحویل و نوع بسته‌بندی را تعیین
+              می‌کند؛ پس از بررسی بورس و سپرده‌گذاری مرکزی، اطلاعیه در سایت بورس و سامانه TSETMC منتشر
+              می‌شود.<sup class="ref"><a href="#s6">۶</a></sup>
+            </li>
+            <li>
+              <strong>سفارش‌گذاری و رقابت قیمتی.</strong> خریدار پیش از شروع تالار، سفارش خرید (شامل
+              نماد، حجم، قیمت و کد معاملاتی) را به کارگزار می‌دهد. در بازار برق، ارسال سفارش معمولاً
+              ۹:۳۰ تا ۱۰:۰۰ و اصلاح قیمت/حجم ۱۰:۰۰ تا ۱۲:۰۰ است. اگر تقاضا بیش از عرضه باشد، رقابت
+              قیمتی شکل می‌گیرد.<sup class="ref"><a href="#s2">۲</a><a href="#s6">۶</a></sup>
+            </li>
+            <li>
+              <strong>کشف قیمت و انجام معامله (مچینگ).</strong> موتور معاملات سفارش‌های خرید و عرضه را
+              مرتب و تطبیق می‌دهد؛ عرضه به خریداران با قیمت برتر تخصیص می‌یابد و معامله ثبت می‌شود.<sup class="ref"><a href="#s6">۶</a></sup>
+            </li>
+            <li>
+              <strong>تسویه مالی از طریق اتاق پایاپای.</strong> شرکت سپرده‌گذاری مرکزی وجه را از
+              کارگزار خریدار دریافت و حداکثر تا <span class="mono">T+3</span> به کارگزار فروشنده تحویل
+              می‌دهد؛ کارمزدها و (در صورت مصرف‌کننده نهایی) مالیات بر ارزش افزوده لحاظ می‌شود.<sup class="ref"><a href="#s2">۲</a><a href="#s6">۶</a></sup>
+            </li>
+            <li>
+              <strong>تحویل فیزیکی برق از طریق شبکه.</strong> در دوره تحویل، برق از طریق شبکه سراسری
+              تامین می‌شود و انرژی خریداری‌شده در صورت‌حساب مشترک لحاظ (کسر) می‌گردد؛ هزینه ترانزیت و
+              تلفات جداگانه به شرکت مدیریت شبکه پرداخت می‌شود و تامین توسط مدیریت شبکه/توانیر تضمین
+              می‌گردد.<sup class="ref"><a href="#s7">۷</a><a href="#s12">۱۲</a></sup>
+            </li>
+          </ol>
+        </section>
+
+        <section id="settlement">
+          <h2><span class="num-badge">۶</span>تسویه، تضامین، کارمزد و مالیات</h2>
+
+          <h3>۶٫۱ تسویه مالی</h3>
+          <ul>
+            <li><strong>بازار مشتقه (سلف برق):</strong> موعد تسویه <span class="mono">T+3</span> (سه روز کاری) و به‌صورت نقدی است. کارگزار خریدار تا ساعت ۱۲ همان روز، ارزش معامله + کارمزدها (+ در صورت مصرف‌کننده نهایی، ۱۰٪ مالیات ارزش افزوده) را با سپرده‌گذاری مرکزی تسویه می‌کند.<sup class="ref"><a href="#s6">۶</a></sup></li>
+            <li><strong>بازار فیزیکی:</strong> ۱۰٪ (گاهی ۲۰٪) پیش‌پرداخت قبل از معامله؛ مابقی برای کالای داخلی ۳ روز کاری و برای بازار بین‌الملل ۵ روز کاری. روش‌های تسویه: نقدی، تسویه با تضمین (ضمانت‌نامه بانکی/اعتبار اسنادی، مخصوص نسیه) و تسویه خارج از پایاپای.<sup class="ref"><a href="#s2">۲</a></sup></li>
+          </ul>
+          <div class="callout note">
+            <span class="tag">نکته مالیات ارزش افزوده برق</span>
+            اگر خریدار «مصرف‌کننده نهایی» باشد، ۱۰٪ مالیات ارزش افزوده در زمان <span class="mono">T+3</span>
+            به حساب کارگزار خریدار واریز و نگه داشته می‌شود تا فروشنده صورت‌حساب رسمی را ارسال کند؛ سپس
+            کارگزار خریدار مالیات را به حساب اعلامی فروشنده واریز می‌کند.<sup class="ref"><a href="#s6">۶</a></sup>
+            (نرخ عمومی مالیات ارزش افزوده در حال حاضر ۱۰٪ است و ممکن است تغییر کند.)
+          </div>
+
+          <h3>۶٫۲ کارمزدها</h3>
+          <p>
+            جدول زیر آخرین ساختار کارمزد اعلام‌شده در یک منبع آموزشی معتبر است و باید «به‌عنوان تقریب»
+            دیده شود؛ ارقام و سقف‌ها با مصوبات جدید تغییر می‌کنند و باید با اطلاعیه رسمی بورس تطبیق شوند.<sup class="ref"><a href="#s2">۲</a></sup>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <caption>ساختار کارمزد معاملات بورس انرژی (تقریبی، مبنای درصدی از ارزش معامله)</caption>
+              <thead>
+                <tr><th>رکن</th><th>کارمزد خرید</th><th>سقف خرید (ریال)</th><th>کارمزد فروش</th><th>سقف فروش (ریال)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>شرکت بورس انرژی</td><td>۰٫۰۴٪</td><td>۱۰۰٬۰۰۰٬۰۰۰</td><td>۰٫۰۴٪</td><td>۱۰۰٬۰۰۰٬۰۰۰</td></tr>
+                <tr><td>شرکت سپرده‌گذاری مرکزی</td><td>۰٫۰۲۵٪</td><td>۱۰۰٬۰۰۰٬۰۰۰</td><td>۰٫۰۲۵٪</td><td>۱۰۰٬۰۰۰٬۰۰۰</td></tr>
+                <tr><td>شرکت مدیریت فناوری</td><td>۰٫۰۱۵٪</td><td>۱۰۰٬۰۰۰٬۰۰۰</td><td>۰٫۰۱۵٪</td><td>۱۰۰٬۰۰۰٬۰۰۰</td></tr>
+                <tr><td>سازمان بورس و اوراق بهادار</td><td>۰٫۰۳۲٪</td><td>۸۰٬۰۰۰٬۰۰۰</td><td>۰٫۰۴۸٪</td><td>۱۲۰٬۰۰۰٬۰۰۰</td></tr>
+                <tr><td>کارگزاری</td><td>۰٫۱۵٪</td><td>۱۰۰٬۰۰۰٬۰۰۰</td><td>۰٫۱۵٪</td><td>۱۰۰٬۰۰۰٬۰۰۰</td></tr>
+                <tr><td><strong>جمع</strong></td><td><strong>۰٫۲۶۲٪</strong></td><td>۴۸۰٬۰۰۰٬۰۰۰</td><td><strong>۰٫۲۷۸٪</strong></td><td>۵۲۰٬۰۰۰٬۰۰۰</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>۶٫۳ تضامین و جریمه نکول</h3>
+          <p>
+            اتاق پایاپای پیش از عرضه، تضامین و سپرده‌های لازم فروشنده را کنترل می‌کند و خریدار هم
+            پیش‌پرداخت می‌سپارد. قواعد تاخیر و نکول (بر مبنای دستورالعمل تسویه و پایاپای معاملات بورس
+            کالا که به‌طور مشابه اعمال می‌شود) چنین است:<sup class="ref"><a href="#s13">۱۳</a><a href="#s14">۱۴</a></sup>
+          </p>
+          <ul>
+            <li>مهلت تسویه معمولاً ۳ روز کاری است.</li>
+            <li>در صورت تاخیر، خریدار می‌تواند تا حداکثر ۷ روز تقویمی بعد، با پرداخت جریمه «۰٫۲۵٪ ارزش معامله به ازای هر روز تاخیر» (به نفع فروشنده) تسویه کند.</li>
+            <li>اگر پس از این مهلت هم تسویه نشود، معامله «منفسخ» می‌شود و کارگزار خریدار باید «۵٪ ارزش معامله» را به‌عنوان خسارت انفساخ + کارمزد طرفین بپردازد.</li>
+            <li>به‌طور متقارن، اگر فروشنده حواله خرید کالا را در مهلت مقرر صادر نکند، «۵٪ ارزش معامله» + هزینه‌های مصوب را به نفع خریدار می‌پردازد.</li>
+          </ul>
+
+          <h3>۶٫۴ مالیات و معافیت‌ها</h3>
+          <ul>
+            <li>معافیت مالیاتی: بر اساس ماده ۶ قانون توسعه ابزارها و نهادهای مالی جدید، ۱۰٪ از مالیات بر درآمد فروش کالاهای معامله‌شده در بورس انرژی مشمول بخشودگی است.<sup class="ref"><a href="#s4">۴</a><a href="#s3">۳</a></sup></li>
+            <li>معافیت از تشریفات مناقصه و مزایده برای دستگاه‌های دولتی و عمومی (ماده ۱۷ و قوانین بودجه سنواتی).<sup class="ref"><a href="#s4">۴</a></sup></li>
+            <li>مالیات بر ارزش افزوده روی برق مصرف‌کننده نهایی طبق توضیح بالا اعمال می‌شود.</li>
+          </ul>
+        </section>
+
+        <section id="risks">
+          <h2><span class="num-badge">۷</span>ریسک‌ها و ملاحظات</h2>
+          <ul>
+            <li>
+              <strong>ریسک قیمت:</strong> قیمت برق فصلی و ساعتی نوسان زیادی دارد؛ برق تابستان و ساعات
+              اوج گران‌تر است. خرید نقدی در بازار مشتقه معمولاً ارزان‌تر از خرید نسیه در بازار فیزیکی
+              است.<sup class="ref"><a href="#s8">۸</a></sup>
+            </li>
+            <li>
+              <strong>ریسک پیش‌بینی مصرف:</strong> چون نماد ۳ روز کاری پیش از تحویل بسته می‌شود و برق
+              قابل ذخیره نیست، اگر مصرف واقعی کمتر از خرید باشد، برق مازاد «سوخت» می‌شود و اگر بیشتر
+              باشد، مصرف مازاد با ضریب جریمه محاسبه می‌شود.<sup class="ref"><a href="#s12">۱۲</a></sup>
+            </li>
+            <li>
+              <strong>ریسک تحویل و محدودیت شبکه:</strong> اگر به دلایل فنی برق تحویل نشود، شرکت توانیر
+              موظف به جبران است (مثلاً در تابلوی اول ۱٫۳ برابر متوسط قیمت و در تابلوی سبز ۱٫۴ برابر
+              متوسط قیمت آن دوره)، اما این جبران‌ها مشروط و مشمول تغییر توسط هیئت تنظیم‌اند.<sup class="ref"><a href="#s6">۶</a></sup>
+            </li>
+            <li>
+              <strong>ریسک اعمال‌نشدن خرید در صورت‌حساب:</strong> گاهی خرید از بورس به دلیل نحوه ارتباط
+              بورس با مدیریت شبکه، در صورت‌حساب مشترک اعمال نشده است؛ پیگیری تخصیص با مدیریت شبکه مهم
+              است.<sup class="ref"><a href="#s12">۱۲</a></sup>
+            </li>
+            <li>
+              <strong>ریسک نقدشوندگی:</strong> عمق بازار برای برخی نمادها کم است و ورود/خروج ممکن است
+              دشوار باشد.<sup class="ref"><a href="#s3">۳</a></sup>
+            </li>
+            <li>
+              <strong>ریسک سیاست‌گذاری:</strong> ضرایب جریمه، سقف‌ها، نرخ‌ها و ساعات معاملاتی با مصوبات
+              وزارت نیرو، هیئت تنظیم بازار برق و سازمان بورس تغییر می‌کنند.<sup class="ref"><a href="#s12">۱۲</a><a href="#s6">۶</a></sup>
+            </li>
+            <li>
+              <strong>ریسک نکول:</strong> تاخیر در تسویه جریمه روزانه دارد و نکول کامل ۵٪ خسارت انفساخ
+              به‌همراه دارد.<sup class="ref"><a href="#s13">۱۳</a><a href="#s14">۱۴</a></sup>
+            </li>
+          </ul>
+          <div class="callout warn">
+            <span class="tag">مقررات ویژه بازار برق</span>
+            الزام خرید برای مشترکان بالای ۱ مگاوات از تابلوی اول یا قرارداد دوجانبه، جریمه ضریب ۱٫۲ برای
+            مصرف مازاد، اولویت خاموشی برای متخلفان، و تکلیف تامین برق سبز برای صنایع بزرگ و مزارع رمزارز،
+            همگی از تصمیم‌های وزارت نیرو و هیئت تنظیم بازار برق‌اند و ماهیت «شبه‌اجباری» به حضور در بازار
+            برق داده‌اند.<sup class="ref"><a href="#s6">۶</a><a href="#s11">۱۱</a><a href="#s12">۱۲</a></sup>
+          </div>
+        </section>
+
+        <section id="example">
+          <h2><span class="num-badge">۸</span>مثال عددی فرضی (خرید برق)</h2>
+          <div class="callout warn">
+            <span class="tag">توجه</span>
+            همه اعداد این مثال «فرضی و صرفاً برای ملموس‌شدن فرآیند» هستند. قیمت پایه نزدیک به داده
+            منتشرشده تیر ۱۴۰۵ انتخاب شده (بارپایه ماهانه حدود ۳٬۵۸۸ ریال بر کیلووات‌ساعت) اما قیمت
+            واقعی هر دوره متفاوت است.<sup class="ref"><a href="#s8">۸</a></sup>
+          </div>
+          <p><strong>فرض مسئله:</strong> یک صنعت با قدرت قراردادی ۲ مگاوات می‌خواهد کل نیاز بار پایه
+          خود را برای ماه تیر ۱۴۰۵ (۳۱ روز) از نماد
+          <span class="mono">بارپایه ماهانه ۱۴۰۵۰۴۰۱</span> بخرد. قیمت پایانی فرضی
+          <span class="mono">۳٬۶۰۰ ریال به ازای هر کیلووات‌ساعت</span> در نظر گرفته می‌شود.</p>
+
+          <h4>گام ۱: محاسبه حجم انرژی</h4>
+          <div class="formula">
+            طول دوره = ۳۱ روز × ۲۴ ساعت (بار پایه) = ۷۴۴ ساعت<br />
+            حجم = ۲ مگاوات × ۷۴۴ ساعت = ۱٬۴۸۸ مگاوات‌ساعت = ۱٬۴۸۸٬۰۰۰ کیلووات‌ساعت
+          </div>
+
+          <h4>گام ۲: ارزش انرژی و اجزای پرداخت</h4>
+          <div class="table-wrap">
+            <table>
+              <caption>برآورد پرداختی خریدار (اعداد فرضی، ریال)</caption>
+              <thead>
+                <tr><th>قلم</th><th>محاسبه</th><th>مبلغ (ریال)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>ارزش انرژی</td><td>۱٬۴۸۸٬۰۰۰ kWh × ۳٬۶۰۰</td><td>۵٬۳۵۶٬۸۰۰٬۰۰۰</td></tr>
+                <tr><td>پیش‌پرداخت (۱۰٪ قبل از معامله)</td><td>۰٫۱۰ × ارزش انرژی</td><td>۵۳۵٬۶۸۰٬۰۰۰</td></tr>
+                <tr><td>کارمزد خرید (تقریبی ۰٫۲۶۲٪)</td><td>۰٫۰۰۲۶۲ × ارزش انرژی</td><td>≈ ۱۴٬۰۳۵٬۰۰۰</td></tr>
+                <tr><td>مالیات ارزش افزوده (۱۰٪، مصرف‌کننده نهایی)</td><td>۰٫۱۰ × ارزش انرژی</td><td>۵۳۵٬۶۸۰٬۰۰۰</td></tr>
+                <tr><td><strong>مجموع تقریبی پرداختی</strong></td><td>ارزش + کارمزد + مالیات</td><td><strong>≈ ۵٬۹۰۶٬۵۱۵٬۰۰۰</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            یعنی حدود <strong>۵۹۰٫۷ میلیون تومان</strong> برای یک ماه بار پایه ۲ مگاوات. علاوه بر این،
+            «هزینه ترانزیت و تلفات» از هاب شبکه تا محل مصرف به‌صورت جداگانه به شرکت مدیریت شبکه پرداخت
+            می‌شود.<sup class="ref"><a href="#s7">۷</a></sup>
+          </p>
+          <h4>گام ۳: چرا این بهتر از نخریدن است؟</h4>
+          <p>
+            اگر همین مشترک برق خود را از تابلوی اول/دوجانبه تامین نکند، مصرفش با ضریب ۱٫۲ برابرِ حداکثر
+            قیمت پذیرفته‌شده بازار برق در صورت‌حساب محاسبه می‌شود و در اولویت خاموشی قرار می‌گیرد؛ به
+            همین دلیل خرید از بورس معمولاً هم ارزان‌تر و هم کم‌ریسک‌تر از «نخریدن» است.<sup class="ref"><a href="#s6">۶</a><a href="#s11">۱۱</a></sup>
+          </p>
+        </section>
+
+        <section id="glossary">
+          <h2><span class="num-badge">۹</span>واژه‌نامه اصطلاحات کلیدی</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>اصطلاح فارسی</th><th>معادل انگلیسی</th><th>توضیح کوتاه</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>بورس انرژی ایران</td><td>Iran Energy Exchange (IRENEX)</td><td>چهارمین بورس رسمی کشور برای معامله حامل‌های انرژی</td></tr>
+                <tr><td>سازمان بورس و اوراق بهادار</td><td>Securities and Exchange Organization (SEO)</td><td>نهاد ناظر بر کل بازار سرمایه</td></tr>
+                <tr><td>بازار فیزیکی</td><td>Physical Market</td><td>معامله خود کالا با تحویل</td></tr>
+                <tr><td>بازار مشتقه</td><td>Derivatives Market</td><td>معامله اوراق مبتنی بر کالا</td></tr>
+                <tr><td>بازار فرعی</td><td>Secondary/Auxiliary Market</td><td>عرضه موردی کالای تک‌محموله‌ای/غیراستاندارد</td></tr>
+                <tr><td>رینگ</td><td>Ring</td><td>تالار داخلی یا بین‌المللی هر تابلو</td></tr>
+                <tr><td>تابلو</td><td>Board</td><td>بخش معاملاتی یک دسته کالا</td></tr>
+                <tr><td>نماد</td><td>Trading Symbol</td><td>شناسه هر قرارداد (نوع بار + دوره تحویل + تاریخ)</td></tr>
+                <tr><td>بار پایه</td><td>Base Load</td><td>۲۴ ساعت شبانه‌روز</td></tr>
+                <tr><td>اوج بار / پیک / پرباری</td><td>Peak Load</td><td>ساعات پرمصرف</td></tr>
+                <tr><td>میان‌باری</td><td>Mid‑peak</td><td>ساعات میانی</td></tr>
+                <tr><td>کم‌باری</td><td>Off‑peak</td><td>ساعات کم‌مصرف (شبانه)</td></tr>
+                <tr><td>دوره تحویل</td><td>Delivery Period</td><td>روزانه/هفتگی/ماهانه/فصلی/سالانه</td></tr>
+                <tr><td>دوره مصرف</td><td>Consumption Period</td><td>ساعات معتبر نوع بار در هر شبانه‌روز</td></tr>
+                <tr><td>سلف موازی استاندارد</td><td>Standard Parallel Salaf</td><td>پیش‌فروش قابل‌معامله در بازار ثانویه</td></tr>
+                <tr><td>کشف پریمیوم</td><td>Premium Discovery</td><td>قیمت شناور بر پایه مرجع + پریمیوم</td></tr>
+                <tr><td>قرارداد آتی</td><td>Futures</td><td>تعهد خرید/فروش آینده با قیمت ثابت</td></tr>
+                <tr><td>اختیار معامله</td><td>Option</td><td>حق (نه تعهد) خرید یا فروش</td></tr>
+                <tr><td>قیمت پایه</td><td>Base Price</td><td>حداقل قیمت اعلامی در اطلاعیه عرضه</td></tr>
+                <tr><td>حراج چند قیمتی</td><td>Multi‑price Auction</td><td>سازوکار کشف قیمت رقابتی برق</td></tr>
+                <tr><td>اتاق پایاپای</td><td>Clearing House</td><td>واحد تسویه و تضمین تعهدات</td></tr>
+                <tr><td>شرکت سپرده‌گذاری مرکزی (سمات)</td><td>CSDI</td><td>مجری تسویه و پایاپای</td></tr>
+                <tr><td>شرکت مدیریت شبکه برق ایران</td><td>Iran Grid Management Co. (IGMC)</td><td>بهره‌بردار شبکه، تعیین سقف و تحویل فیزیکی</td></tr>
+                <tr><td>توانیر</td><td>Tavanir</td><td>شرکت مادرتخصصی برق؛ نظارت و جبران خسارت</td></tr>
+                <tr><td>ساتبا</td><td>SATBA</td><td>سازمان انرژی‌های تجدیدپذیر و بهره‌وری برق</td></tr>
+                <tr><td>کد معاملاتی</td><td>Trading Code</td><td>مجوز فعالیت هر مشتری در بورس انرژی</td></tr>
+                <tr><td>حساب وکالتی</td><td>Agency Account</td><td>حساب بانکی مبنای تسویه معاملات</td></tr>
+                <tr><td>قدرت قراردادی / دیماند</td><td>Contracted Capacity / Demand</td><td>سقف توان مجاز مشترک (مگاوات)</td></tr>
+                <tr><td>مگاوات‌ساعت</td><td>Megawatt‑hour (MWh)</td><td>واحد حجم انرژی</td></tr>
+                <tr><td>گواهی ظرفیت</td><td>Capacity Certificate</td><td>ورقه مبتنی بر ظرفیت نیروگاه</td></tr>
+                <tr><td>برق سبز</td><td>Green Electricity</td><td>برق تجدیدپذیر (ماده ۱۶ قانون جهش تولید دانش‌بنیان)</td></tr>
+                <tr><td>خسارت انفساخ</td><td>Rescission Penalty</td><td>۵٪ ارزش معامله در صورت نکول</td></tr>
+                <tr><td>هاب شبکه</td><td>Grid Hub / Reference Point</td><td>نقطه مرجع تحویل در شبکه سراسری</td></tr>
+                <tr><td>هیئت تنظیم بازار برق</td><td>Electricity Market Regulatory Board</td><td>مرجع تعیین نرخ سقف و ضرایب</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="sources" class="sources">
+          <h2>منابع</h2>
+          <p style="color: var(--muted); font-size: 13.5px">
+            تلاش شد از منابعی استفاده شود که یا مرجع رسمی‌اند یا به دستورالعمل‌ها و مصوبات رسمی (وزارت
+            نیرو، سازمان بورس، شرکت مدیریت شبکه) ارجاع داده‌اند. دسترسی مستقیم به
+            <span class="mono">irenex.ir</span> در زمان تدوین از محیط ما با خطای زمان‌بندی مواجه شد؛ از
+            این رو ادعاها از منابع ثانویه معتبری که به اسناد رسمی استناد کرده‌اند نقل شده است. برای
+            اعداد و مقررات حساس، آخرین نسخه رسمی را مستقیماً بررسی کنید. تاریخ بازیابی همه منابع: تیر
+            ۱۴۰۵.
+          </p>
+          <ol>
+            <li id="s1">ویکی‌پدیای فارسی، «بورس انرژی ایران». <a href="https://fa.wikipedia.org/wiki/%D8%A8%D9%88%D8%B1%D8%B3_%D8%A7%D9%86%D8%B1%DA%98%DB%8C_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86" rel="nofollow">fa.wikipedia.org</a></li>
+            <li id="s2">سایت جامع بورس ایران (ecn.ir)، «انواع بازار در بورس انرژی ایران» (شامل جدول کارمزد و مدارک). <a href="https://ecn.ir/stock-training/energy-exchange/" rel="nofollow">ecn.ir/stock-training/energy-exchange</a></li>
+            <li id="s3">کاریزما لرنینگ، «بورس انرژی چیست؟» <span class="stamp">(به‌روزرسانی ۱۴۰۴/۰۹/۰۹)</span>. <a href="https://learning.charisma.ir/commodity/%d8%a8%d9%88%d8%b1%d8%b3-%d8%a7%d9%86%d8%b1%da%98%db%8c-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" rel="nofollow">learning.charisma.ir</a></li>
+            <li id="s4">بورسینس، «همه چیز درباره بورس انرژی (سازوکار و روش انجام معاملات)». <a href="https://www.bourseiness.com/energy-exchange" rel="nofollow">bourseiness.com/energy-exchange</a></li>
+            <li id="s5">ایران‌ریبیت، «بورس انرژی چیست؟» <span class="stamp">(به‌روزرسانی ۱۷ اردیبهشت ۱۴۰۵)</span>. <a href="https://iranrebate.com/article/bourse/energy-bourse/" rel="nofollow">iranrebate.com</a></li>
+            <li id="s6">ارائه فنی «بازار برق بورس انرژی ایران» (فایل PDF، انجمن ساتکا، ۲۰۲۴): تابلوها، انواع بار، دوره تحویل، ضوابط بازگشایی/توقف نماد، مصوبات تابلوی اول و دوم. <a href="https://satka-association.com/wp-content/uploads/2024/05/%D9%85%D9%87%D9%86%D8%AF%D8%B3-%DA%A9%D9%87%D9%86%D9%88%D8%AC%DB%8C-%D8%A8%D9%88%D8%B1%D8%B3-%D8%A7%D9%86%D8%B1%DA%98%DB%8C.pdf" rel="nofollow">satka-association.com (PDF)</a></li>
+            <li id="s7">دنیای اقتصاد، «فرآیند معاملات بورس انرژی تشریح شد»: تعریف سلف موازی برق و هاب شبکه. <a href="https://donya-e-eqtesad.com/%D8%A8%D8%AE%D8%B4-%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-2/7215" rel="nofollow">donya-e-eqtesad.com</a></li>
+            <li id="s8">انرژی توان، «قیمت برق در بورس انرژی ۱۴۰۵ + جدول قیمت»: نمونه قیمت بارپایه/بارپیک ماهانه. <a href="https://energytavan.ir/%d9%82%db%8c%d9%85%d8%aa-%d8%a8%d8%b1%d9%82-%d8%af%d8%b1-%d8%a8%d9%88%d8%b1%d8%b3-%d8%a7%d9%86%d8%b1%da%98%db%8c-1405/" rel="nofollow">energytavan.ir</a></li>
+            <li id="s9">پیغام پسغام (به نقل از سازمان بورس)، «وضعیت معاملات نمادهای بازار برق بورس انرژی، ۸ فروردین ۱۴۰۵»: نمونه نماد و اطلاعیه گشایش/توقف. <a href="https://peyghampasgham.ir/stock-exchange-and-forex/191548/" rel="nofollow">peyghampasgham.ir</a></li>
+            <li id="s10">خبرگزاری مهر، «۳۱ میلیون مگاوات‌ساعت برق در بورس انرژی معامله شد»: سقف مجاز و تخصیص دارایی توسط مدیریت شبکه. <a href="https://www.mehrnews.com/news/6171161/" rel="nofollow">mehrnews.com</a></li>
+            <li id="s11">نیک‌اندیشان انرژی مهام شرق، «قرارداد دوجانبه برق»: مصوبه ۱۴۰۱/۱۲/۲۷ و ضریب ۱٫۲ تابلوی اول. <a href="https://nicaco.ir/" rel="nofollow">nicaco.ir</a></li>
+            <li id="s12">تامین انرژی صنعت فاخته، «قرارداد دو جانبه برق»: مصوبات ۱۳۹۹ و ۱۴۰۲، مقایسه دوجانبه و بورس، نقش مدیریت شبکه و توانیر. <a href="https://energyfakhteh.ir/%D9%82%D8%B1%D8%A7%D8%B1%D8%AF%D8%A7%D8%AF-%D8%A8%D8%B1%D9%82-%D8%AF%D9%88-%D8%AC%D8%A7%D9%86%D8%A8%D9%87/" rel="nofollow">energyfakhteh.ir</a></li>
+            <li id="s13">خانه سرمایه، «پایاپای و تسویه بورس کالا»: مهلت تسویه، جریمه ۰٫۲۵٪ روزانه و خسارت انفساخ ۵٪. <a href="https://khanesarmaye.com/stock-settlement/" rel="nofollow">khanesarmaye.com</a></li>
+            <li id="s14">وینداد، «دستورالعمل تسویه و پایاپای معاملات بورس کالای ایران (مصوب ۱۳۸۹)». <a href="https://vindad.com/blog/iran-rules-reference/burse/p8545/" rel="nofollow">vindad.com</a></li>
+            <li id="s15">بورسینس، «اوراق سلف موازی استاندارد چیست؟ + نحوه معامله». <a href="https://www.bourseiness.com/54168/what-is-standard-parallel-salaf-contracts" rel="nofollow">bourseiness.com</a></li>
+            <li id="s16">انرژی پاک پویش پرشین (clean-energy.ir)، «بورس انرژی»: توقف نماد ۳ روز پیش از تحویل و نقش پایه بهای آمادگی/نرخ سقف بازار متعادل‌ساز. <a href="https://clean-energy.ir/%D8%A8%D9%88%D8%B1%D8%B3-%D8%A7%D9%86%D8%B1%DA%98%DB%8C/" rel="nofollow">clean-energy.ir</a></li>
+            <li id="s17">آکادمی آرمان تدبیر، «بورس انرژی چیست؟»: تاریخچه تاسیس و نشانی رسمی. <a href="https://armanbroker.ir/academy/" rel="nofollow">armanbroker.ir</a></li>
+          </ol>
+          <p style="color: var(--muted); font-size: 13.5px">
+            منابع رسمی پیشنهادی برای راستی‌آزمایی: بورس انرژی ایران
+            <a href="https://www.irenex.ir" rel="nofollow">irenex.ir</a>، سازمان بورس و اوراق بهادار
+            <a href="https://www.seo.ir" rel="nofollow">seo.ir</a>، شرکت مدیریت شبکه برق ایران
+            <a href="https://www.igmc.ir" rel="nofollow">igmc.ir</a> و شرکت توانیر
+            <a href="https://www.tavanir.org.ir" rel="nofollow">tavanir.org.ir</a>. در صورت در دسترس
+            نبودن این صفحات، از آرشیو وب (<span class="mono">web.archive.org</span>) استفاده کنید.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>
+        iee.smmiri.com · سندی مرجع درباره بورس انرژی ایران و بازار برق. این صفحه وابسته
+        به بورس انرژی ایران، سازمان بورس و اوراق بهادار یا هیچ نهاد دولتی نیست.
+      </p>
+    </footer>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var key = "iee_theme";
+        var saved = localStorage.getItem(key);
+        var prefersDark =
+          saved === "dark" ||
+          (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+        if (prefersDark) root.classList.add("dark");
+        var themeBtn = document.getElementById("theme-btn");
+        function label() {
+          themeBtn.textContent = root.classList.contains("dark") ? "حالت روز" : "حالت شب";
+        }
+        label();
+        themeBtn.addEventListener("click", function () {
+          root.classList.toggle("dark");
+          localStorage.setItem(key, root.classList.contains("dark") ? "dark" : "light");
+          label();
+        });
+        document.getElementById("print-btn").addEventListener("click", function () {
+          window.print();
+        });
+
+        var links = Array.prototype.slice.call(document.querySelectorAll(".toc a"));
+        var map = {};
+        links.forEach(function (l) {
+          var id = l.getAttribute("href").slice(1);
+          var el = document.getElementById(id);
+          if (el) map[id] = l;
+        });
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                links.forEach(function (l) {
+                  l.classList.remove("active");
+                });
+                if (map[e.target.id]) map[e.target.id].classList.add("active");
+              }
+            });
+          },
+          { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+        );
+        Object.keys(map).forEach(function (id) {
+          obs.observe(document.getElementById(id));
+        });
+      })();
+    </script>
+  </body>
+</html>

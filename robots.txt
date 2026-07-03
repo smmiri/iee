@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iee.smmiri.com/sitemap.xml
