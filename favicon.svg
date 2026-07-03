@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="IRENEX">
   <rect width="32" height="32" rx="7" fill="#0b6b5f"/>
-  <path fill="#ffffff" d="M18.2 4.5 9.5 17.2h5.1L13.8 27.5l10.7-14.2h-5.4L18.2 4.5z"/>
+  <path
+    fill="#ffffff"
+    d="M16.6 5.2 11.4 16.6h4.1l-2.8 10.2 9.8-13.4h-4.2L16.6 5.2z"
+  />
 </svg>
