@@ -41,6 +41,8 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html _site/
+          cp favicon.svg _site/
+          cp og-image.png _site/
           cp CNAME _site/
           cp robots.txt _site/
           cp sitemap.xml _site/
